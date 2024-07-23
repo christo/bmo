@@ -3,21 +3,6 @@
 from enum import Enum
 from itertools import count
 
-# unicode outline
-outline_king = "\u2654"
-outline_queen = "\u2655"
-outline_rook = "\u2656"
-outline_bishop = "\u2657"
-outline_knight = "\u2658"
-outline_pawn = "\u2659"
-# unicode solid
-solid_king = "\u265A"
-solid_queen = "\u265B"
-solid_rook = "\u265C"
-solid_bishop = "\u265D"
-solid_knight = "\u265E"
-solid_pawn = "\u265F"
-
 DIM = "\033[2m"
 RESET = "\033[0m"
 BLACK_ON_WHITE = "\033[1;30;47m"
@@ -56,13 +41,14 @@ class Piece:
         return self.letter if colour == Colour.BLACK else self.letter.upper()
 
 
-# white pieces are UPPER CASE ASCII, black are lower case
-PAWN = Piece("pawn", 'p', solid_pawn, outline_pawn)
-ROOK = Piece("rook", 'r', solid_rook, outline_rook)
-KNIGHT = Piece("knight", 'n', solid_knight, outline_knight)
-BISHOP = Piece("bishop", 'b', solid_bishop, outline_bishop)
-QUEEN = Piece("queen", 'q', solid_queen, outline_queen)
-KING = Piece("king", 'k', solid_king, outline_king)
+# white piece letters are UPPER CASE ASCII, black are lower case
+# unicode escapes are chess pieces in solid and outline (although officially named black and white)
+PAWN = Piece("pawn", 'p', "\u265F", "\u2659")
+ROOK = Piece("rook", 'r', "\u265C", "\u2656")
+KNIGHT = Piece("knight", 'n', "\u265E", "\u2658")
+BISHOP = Piece("bishop", 'b', "\u265D", "\u2657")
+QUEEN = Piece("queen", 'q', "\u265B", "\u2655")
+KING = Piece("king", 'k', "\u265A", "\u2654")
 
 
 def init_board():
