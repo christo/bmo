@@ -71,22 +71,22 @@ def init_board():
     ]
 
 
-def square_unicode(colour_piece, square_colour):
+def square_unicode(colour_piece, sq_colour):
     """
     returns unicode piece ansi string for chess square occupied by colour_piece (None or tuple of Colour, Piece)
     """
     ch = " "
     if colour_piece is not None:
-        ch = colour_piece[1].outline if colour_piece[0] == square_colour else colour_piece[1].solid
-    return f"{square_colour.sq_ansi}{ch}"
+        ch = colour_piece[1].outline if colour_piece[0] == sq_colour else colour_piece[1].solid
+    return f"{sq_colour.sq_ansi}{ch}"
 
 
-def square_ascii(colour_piece, square_colour):
+def square_ascii(colour_piece, sq_colour):
     """
     returns ascii piece ansi string for chess square occupied by colour_piece (None or tuple of Colour, Piece)
     """
     ch = " " if colour_piece is None else colour_piece[1].ascii(colour_piece[0])
-    return f"{square_colour.sq_ansi}{ch}"
+    return f"{sq_colour.sq_ansi}{ch}"
 
 
 def print_board(board, render_square):
